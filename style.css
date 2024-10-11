@@ -1,0 +1,76 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header img{
+  width: 50px;
+}
+.brand{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 40px;
+}
+nav ul{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  list-style: none;
+  font-size: 25px;
+}
+
+main{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+section{
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.prendas{
+  display: grid;
+  width: 100%;
+  padding: 10px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  );
+  gap: 10px;
+}
+
+.prendas article{
+  background-color: blanchedalmond;
+  border-radius: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.prendas header ul{
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+
+.prendas img{
+  width: 100%;
+}
+
+
+main img{
+  width: 200px;
+}
