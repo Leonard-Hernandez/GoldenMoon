@@ -44,6 +44,8 @@ table {
 }
 /*Final reset*/
 body{
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -67,7 +69,8 @@ header img{
   align-items: center;
   font-size: 40px;
 }
-nav ul{
+.navegador ul{
+  margin: 2%;
   display: flex;
   flex-flow: row nowrap;
   gap: 20px;
@@ -80,6 +83,19 @@ main{
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  min-height: 85vh;
+}
+h1{
+  font-size: 25px;
+  margin: 25px;
+}
+nav ul{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+  list-style: none;
+  font-size: 25px;
+  white-space: nowrap;
 }
 section{
   width: 100%;
@@ -130,8 +146,11 @@ main img{
 }
 
 footer{
+  display: flex;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%;
   height: 10vh;
 }
