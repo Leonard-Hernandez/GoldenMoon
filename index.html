@@ -1,85 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golden Moon</title>
   </head>
   <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golden Moon</title>
-</head>
-<body>
-
-  <header>
-    <div class="brand">
-      <img src="img/logo.png">
-      Golden Moon
-    </div>
-    <nav class="navegador">
-      <ul>
-        <li>
-          <a href="">inicio</a>
-        </li>
-        <li>
-          <a href="">sobre nosotros</a>
-        </li>
-        <li>
-          <a href="">contactame</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <h1>Pijamas Hermosas</h1>
-    <section class="catalogo">
-      <nav class="categorias">
+    <header>
+      <span class="brand">
+        <img src="img/logo.png" />
+        Golden Moon
+      </span>
+      <nav class="navegador">
         <ul>
           <li>
-            pantalon
+            <a href="">inicio</a>
           </li>
           <li>
-            camisa
+            <a href="">sobre nosotros</a>
           </li>
           <li>
-            bata
+            <a href="">contactame</a>
           </li>
         </ul>
       </nav>
-      <div class="prendas">
-        <article>
-          <header>
-            <h2>Bata</h2>
-            <ul class="tallas">
-              <li>
-                M
-              </li>
-              <li>
-                L
-              </li>
-              <li>
+    </header>
+
+    <main>
+      <h1>Pijamas Hermosas Al mejor precio</h1>
+      <section class="catalogo">
+        <aside class="filtros">
+          <h2>Filtros</h2>
+          <form action="">
+            <fieldset>
+              <legend>Tallas</legend>
+              <label>
+                <input type="checkbox" name="talla" value="S" />
                 S
-              </li>
-            </ul>
-          </header>
-          <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE">
-        </article>      
-      </div>
-    </section>
+              </label>
+              <label>
+                <input type="checkbox" name="talla" value="M" />
+                M
+              </label>
+              <label>
+                <input type="checkbox" name="talla" value="L" />
+                L
+              </label>
+              <label>
+                <input type="checkbox" name="talla" value="XL" />
+                XL
+              </label>
+            </fieldset>
+            <fieldset class="categorias">
+              <legend>Categorias</legend>
+              <label for="bata"><input type="checkbox" name="bata">Bata</label>
+              <label for="pijama"><input type="checkbox" name="pijama">Pijama</label>
+              <label for="camisa"><input type="checkbox" name="camisa">Camisa</label>
+            </fieldset>
+            <fieldset class="precio">
+              <legend>Precio</legend>
+              <label>
+                <input type="range" name="precio" min="0" max="1000" />
+              </label>
+            </fieldset>
+            <button type="submit">Aplicar</button>
+          </form>
+        </aside>
+        <article class="prendas">
+          <article class="prenda">
+            <header>
+              <h2>Bata</h2>
+              <fieldset class="tallas">
+                <legend>Tallas</legend>
+                <label>
+                  <input type="radio" name="talla" value="S" />
+                  S
+                </label>
+                <label>
+                  <input type="radio" name="talla" value="M" />
+                  M
+                </label>
+                <label>
+                  <input type="radio" name="talla" value="L" />
+                  L
+                </label>
+                <label>
+                  <input type="radio" name="talla" value="XL" />
+                  XL
+                </label>
+              </fieldset>
+            </header>
+            <img
+              src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE"
+            />
+            <p class="description">Bata de algodón 100% algodón</p>
+            <footer>
+              <span class="price">$200</span>
+              <button aria-label="Comprar">Comprar</button>
+              <button aria-label="Añadir al carrito">Añadir al carrito</button>
+            </footer>
+          </article>
+        </article>
+      </section>
+    </main>
 
-  </main>
-
-  <footer>
-    <p>
-      Creada para lubraska
-    </p>
-    <p>Te amo mucho</p>
-  </footer>
-  
-</body>
-</html>
-    <script type="module" src="script.js"></script>
+    <footer>
+      <p>Creada para lubraska</p>
+      <p>Te amo mucho</p>
+      <a href="https://github.com/Leonard-Hernandez/GoldenMoon">Repositorio Github</a>
+    </footer>
   </body>
 </html>
