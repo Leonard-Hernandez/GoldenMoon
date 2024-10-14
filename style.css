@@ -43,12 +43,25 @@ table {
 	border-spacing: 0;
 }
 /*Final reset*/
+:root{
+  --color-primario: #A67A53;
+  --color-fondo: #0D0D0D;
+  --color-secundario-oscuro: #734429;
+  --color-secundario-claro: #D8B08C;
+  --color-terciario-claro:#F2ECCE;
+}
 body{
   width: 100vw;
   height: 100vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  background-color: var(--color-fondo);
+  color: var(--color-terciario-claro);
+}
+a, a:visited{
+  text-decoration: none;
+  color: var(--color-terciario-claro);
+}
+a:active{
+  color: var(--color-secundario-claro);
 }
 
 header{
@@ -57,17 +70,17 @@ header{
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  background-color: var(--color-primario);
 }
-
-header img{
-  width: 50px;
-}
-.brand{
+.brand a{
   white-space: nowrap;
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-size: 40px;
+}
+.brand img{
+  width: 75px;
 }
 
 .navegador ul{
@@ -100,9 +113,29 @@ nav ul{
 section{
   width: 100%;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.filtros{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+  background-color: var(--color-secundario-claro);
+}
+
+.filtros form{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 30px;
+  justify-content: start;
+  align-content: center;
+  
 }
 
 .prendas{
@@ -116,34 +149,32 @@ section{
   gap: 10px;
 }
 
-.prendas article{
-  background-color: blanchedalmond;
-  border-radius: 16px;
+.prenda{
+  background-color: var(--color-secundario-oscuro);
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.prenda header{
+  width: 100%;
+  height: 70px;
+  border-radius:  30px 30px 0 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
   align-items: center;
 }
-
-.prendas h2{
-  font-size: 25px;
-  text-align: center;
-  margin: 10px;
+.prenda h2{
+  font-size: 20px;
+  margin: 2%;
 }
-
-.prendas header ul{
-  display: flex;
-  list-style: none;
-  gap: 10px;
-}
-
-.prendas img{
+.prenda img{
   width: 100%;
 }
 
-
-main img{
-  width: 200px;
-}
 
 footer{
   display: flex;
