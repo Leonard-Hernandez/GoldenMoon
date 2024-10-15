@@ -50,12 +50,16 @@ table {
   --color-secundario-claro: #D8B08C;
   --color-terciario-claro:#F2ECCE;
 }
+*{
+  box-sizing: border-box;
+}
 body{
   width: 100vw;
   height: 100vh;
   background-color: var(--color-fondo);
   color: var(--color-terciario-claro);
 }
+/*link a input styles*/
 a, a:visited{
   text-decoration: none;
   color: var(--color-terciario-claro);
@@ -63,6 +67,42 @@ a, a:visited{
 a:active{
   color: var(--color-secundario-claro);
 }
+input[type="checkbox"], input[type="radio"]{
+  display: none;
+}
+
+label{
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+  background-color: var(--color-primario);
+  border: 2px solid var(--color-secundario-oscuro);
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+label:hover{
+  background-color: var(--color-secundario-oscuro);
+}
+input[type="checkbox"]:checked + label, input[type="radio"]:checked + label{
+  background-color: var(--color-secundario-oscuro);
+  transform: scale(1.1);
+}
+button{
+  padding: 5px;
+  background-color: var(--color-primario);
+  border: 2px solid var(--color-secundario-oscuro);
+  border-radius: 15px;
+  color: var(--color-terciario-claro);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+button:hover{
+  background-color: var(--color-secundario-oscuro);
+  border-color: var(--color-terciario-claro);
+}
+
+/*page styles*/
 
 header{
   height: 15vh;
@@ -111,7 +151,7 @@ nav ul{
   white-space: nowrap;
 }
 section{
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -119,12 +159,14 @@ section{
 }
 
 .filtros{
+  box-sizing: border-box;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-content: center;
   align-items: center;
   width: 100%;
+  max-width: 100%;
   padding: 25px;
   background-color: var(--color-secundario-claro);
 }

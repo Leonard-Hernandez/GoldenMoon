@@ -18,13 +18,13 @@
       <nav class="navegador">
         <ul>
           <li>
-            <a href="" target="_blank">inicio</a>
+            <a href="index.html">inicio</a>
           </li>
           <li>
             <a href="" target="_blank">sobre nosotros</a>
           </li>
           <li>
-            <a href="" target="_blank">contactame</a>
+            <a href="https://wa.me/573106147971?text=Hola%20quiero%20más%20información%20sobre%20las%20pijamas" target="_blank">contactame</a>
           </li>
         </ul>
       </nav>
@@ -36,30 +36,18 @@
         <aside class="filtros">
           <h2>Filtros</h2>
           <form action="">
-            <fieldset>
+            <fieldset class="tallas_filtros">
               <legend>Tallas</legend>
-              <label>
-                <input type="checkbox" name="talla" value="S" />
-                S
-              </label>
-              <label>
-                <input type="checkbox" name="talla" value="M" />
-                M
-              </label>
-              <label>
-                <input type="checkbox" name="talla" value="L" />
-                L
-              </label>
-              <label>
-                <input type="checkbox" name="talla" value="XL" />
-                XL
-              </label>
+              <input type="checkbox" name="tallas_filtros" value="S" id="S_filtro"/><label for="S_filtro">S</label>
+              <input type="checkbox" name="tallas_filtros" value="M" id="M_filtro"/><label for="M_filtro">M</label>
+              <input type="checkbox" name="tallas_filtros" value="L" id="L_filtro"/><label for="L_filtro">L</label>
+              <input type="checkbox" name="tallas_filtros" value="XL" id="XL_filtro"/><label for="XL_filtro">XL</label>
             </fieldset>
             <fieldset class="categorias">
               <legend>Categorias</legend>
-              <label for="bata"><input type="checkbox" name="bata">Bata</label>
-              <label for="pijama"><input type="checkbox" name="pijama">Pijama</label>
-              <label for="camisa"><input type="checkbox" name="camisa">Camisa</label>
+              <input type="checkbox" name="bata" id="bata"><label for="bata">Bata</label>
+              <input type="checkbox" name="pijama" id="pijama"><label for="pijama">Pijama</label>
+              <input type="checkbox" name="camisa" id="camisa"><label for="camisa">Camisa</label>
             </fieldset>
             <fieldset class="precio">
               <legend>Precio</legend>
@@ -74,24 +62,12 @@
           <article class="prenda">
             <header>
               <h2>Bata</h2>
-              <fieldset class="tallas">
+              <fieldset class="tallas_prenda">
                 <legend>Tallas</legend>
-                <label>
-                  <input type="radio" name="talla" value="S" />
-                  S
-                </label>
-                <label>
-                  <input type="radio" name="talla" value="M" />
-                  M
-                </label>
-                <label>
-                  <input type="radio" name="talla" value="L" />
-                  L
-                </label>
-                <label>
-                  <input type="radio" name="talla" value="XL" />
-                  XL
-                </label>
+                <input type="radio" name="tallas_prenda" value="S" id="S"/><label for="S">S</label>
+                <input type="radio" name="tallas_prenda" value="M" id="M"/><label for="M">M</label>
+                <input type="radio" name="tallas_prenda" value="L" id="L"/><label for="L">L</label>
+                <input type="radio" name="tallas_prenda" value="XL" id="XL"/><label for="XL">XL</label>
               </fieldset>
             </header>
             <img
