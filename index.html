@@ -8,7 +8,7 @@
     <link rel="icon" href="img/logo.png" />
     <title>Golden Moon</title>
   </head>
-  <body>
+  <body onload="renderPrendas()">
     <header>
       <span class="brand">
         <a href="index.html">
@@ -60,7 +60,7 @@
             <button type="submit">Aplicar</button>
           </form>
         </aside>
-        <article class="prendas">
+        <article class="prendas" id="prendas_container">
           <article class="prenda">
             <header>
               <h2>Conjunto lenceria negro niño</h2>
@@ -93,5 +93,6 @@
       <p>Te amo mucho</p>
       <a href="https://github.com/Leonard-Hernandez/GoldenMoon" target="_blank">Repositorio Github</a>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
