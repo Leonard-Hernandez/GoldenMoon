@@ -52,8 +52,9 @@
             </fieldset>
             <fieldset class="precio">
               <legend>Precio</legend>
-              <label>
-                <input type="range" name="precio" min="0" max="1000" />
+              <label class="rangoPrecio">
+                <input type="range" name="precio" min="0" max="200000" oninput="this.nextElementSibling.value = this.value" value="0"/>
+                <output>0</output>
               </label>
             </fieldset>
             <button type="submit">Aplicar</button>
@@ -62,7 +63,7 @@
         <article class="prendas">
           <article class="prenda">
             <header>
-              <h2>Bata</h2>
+              <h2>Conjunto lenceria negro niño</h2>
               <fieldset class="tallas_prenda">
                 <legend>Tallas</legend>
                 <input type="radio" name="tallas_prenda" value="S" id="S"/><label for="S">S</label>
@@ -74,11 +75,13 @@
             <img
               src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE"
             />
-            <p class="description">Bata de algodón 100% algodón</p>
+            <p class="description">Bata de algodón 100% algodón cosechado en los andes cuando yo naci cuando era jose</p>
             <footer>
-              <span class="price">$200</span>
-              <button aria-label="Comprar">Comprar</button>
-              <button aria-label="Añadir al carrito">Añadir al carrito</button>
+              <span class="price">$200.000 COP</span>
+              <div class="botones">
+                <button aria-label="Comprar">Comprar</button>
+                <button aria-label="Añadir al carrito">Añadir al carrito</button>
+              </div>
             </footer>
           </article>
         </article>
