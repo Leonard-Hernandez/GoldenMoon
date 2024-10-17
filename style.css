@@ -228,12 +228,10 @@ section{
 }
 
 .prenda{
-  background-color: var(--color-secundario-oscuro);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  border-radius: 30px;
 }
 
 .prenda header{
@@ -256,9 +254,11 @@ section{
   width: 100%;
 }
 .prenda .description{
+  width: 100%;
+  padding: 5%;
   min-width: 4%;
   font-size: 15px;
-  margin: 5%;
+  background-color: var(--color-secundario-oscuro);
 }
 .prenda footer{
   width: 100%;
