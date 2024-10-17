@@ -1,5 +1,6 @@
 var prenda = {
-  name: "Conjunto lencería negro niño",
+  id: 1,
+  name: "Conjunto lencería negro",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
   price: "$200.000 COP",
   image:
@@ -13,7 +14,8 @@ var prenda = {
 };
 
 var prenda1 = {
-  name: "Conjunto lencería negro niño 2",
+  id: 2,
+  name: "Conjunto lencería negro 2",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
   price: "$200.000 COP",
   image:
@@ -25,7 +27,8 @@ var prenda1 = {
 };
 
 var prenda2 = {
-  name: "Conjunto lencería negro niño 3",
+  id: 3,
+  name: "Conjunto lencería negro 3",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
   price: "$200.000 COP",
   image:
@@ -37,7 +40,8 @@ var prenda2 = {
     XL: "XL",
   },
 };
-
+mensaje_wsp = "Hola, me interesa la compra de ";
+mensaje_wsp_compra_directa = "Hola, me interesa la compra de ";
 var prendas = [prenda, prenda1, prenda2];
 
 function mapPrendaToHTML(prenda) {
@@ -52,7 +56,7 @@ function mapPrendaToHTML(prenda) {
   header.appendChild(h2);
 
   const fieldset = document.createElement("fieldset");
-  fieldset.classList.add("tallas_prenda");
+  fieldset.classList.add("tallas_prenda_" + prenda.id);
   header.appendChild(fieldset);
 
   const legend = document.createElement("legend");
@@ -62,14 +66,14 @@ function mapPrendaToHTML(prenda) {
   Object.keys(prenda.tallas).forEach((talla) => {
     const input = document.createElement("input");
     input.type = "radio";
-    input.name = "tallas_prenda";
+    input.name = "tallas_prenda_" + prenda.id;
     input.value = talla;
-    input.id = talla;
+    input.id = talla + "_" + prenda.id;
     fieldset.appendChild(input);
 
     const label = document.createElement("label");
     label.textContent = talla;
-    label.htmlFor = talla;
+    label.htmlFor = talla + "_" + prenda.id;
     fieldset.appendChild(label);
   });
 
@@ -97,30 +101,74 @@ function mapPrendaToHTML(prenda) {
   const buttonComprar = document.createElement("button");
   buttonComprar.textContent = "Comprar";
   buttonComprar.ariaLabel = "Comprar";
+  buttonComprar.onclick = () => {
+    comprarPrenda(prenda.id);
+  };
   div.appendChild(buttonComprar);
 
   const buttonAnadir = document.createElement("button");
   buttonAnadir.textContent = "Añadir al carrito";
   buttonAnadir.ariaLabel = "Añadir al carrito";
+  buttonAnadir.onclick = () => {
+    añadirPrenda(prenda.id);
+  };
   div.appendChild(buttonAnadir);
 
   return article;
 }
 
-
 function renderPrendas() {
-    console.log("RenderPrendas se está ejecutando");
-    console.log(prendas); // Verificar que el arreglo esté poblado
-  
-    prendas.forEach((prenda) => {
-      console.log(prenda); // Verificar que cada objeto tenga las propiedades correctas
-      const article = mapPrendaToHTML(prenda);
-      console.log(article); // Verificar que el elemento article se esté creando correctamente
-  
-      const prendaContainer = document.getElementById("prendas_container");
-      console.log(prendaContainer); // Verificar que el elemento prendaContainer exista en el DOM
-      prendaContainer.appendChild(article);
-    });
-  }
+  console.log("RenderPrendas se está ejecutando");
+  console.log(prendas); // Verificar que el arreglo esté poblado
 
-  window.onload = renderPrendas;
+  prendas.forEach((prenda) => {
+    console.log(prenda); // Verificar que cada objeto tenga las propiedades correctas
+    const article = mapPrendaToHTML(prenda);
+    console.log(article); // Verificar que el elemento article se esté creando correctamente
+
+    const prendaContainer = document.getElementById("prendas_container");
+    console.log(prendaContainer); // Verificar que el elemento prendaContainer exista en el DOM
+    prendaContainer.appendChild(article);
+  });
+}
+
+window.onload = renderPrendas;
+
+function añadirPrenda(id) {
+  try {
+    var talla = document.querySelector(
+      'input[name="tallas_prenda_' + id + '"]:checked'
+    ).value;
+  } catch (error) {
+    talla = undefined;
+  }
+  const prenda = prendas.find((prenda) => prenda.id === id);
+  mensaje_wsp += prenda.name;
+  if (talla != undefined) {
+    mensaje_wsp += " con la talla " + talla;
+  }
+  mensaje_wsp += "\n";
+  console.log(mensaje_wsp);
+}
+
+function comprarPrenda(id) {
+  try {
+    var talla = document.querySelector(
+      'input[name="tallas_prenda_' + id + '"]:checked'
+    ).value;
+  } catch (error) {
+    talla = undefined;
+  }
+  const prenda = prendas.find((prenda) => prenda.id === id);
+  mensaje_wsp_compra_directa += prenda.name;
+
+  if (talla != undefined) {
+    mensaje_wsp_compra_directa += " con la talla " + talla;
+  }
+  mensaje_wsp_compra_directa += "\n";
+  window.open("https://wa.me/573106147971?text=" + encodeURIComponent(mensaje_wsp_compra_directa), "_blank");
+}
+
+function enviarCarrito() {
+  window.open("https://wa.me/573106147971?text=" + encodeURIComponent(mensaje_wsp), "_blank");
+}
