@@ -172,3 +172,9 @@ function comprarPrenda(id) {
 function enviarCarrito() {
   window.open("https://wa.me/573106147971?text=" + encodeURIComponent(mensaje_wsp), "_blank");
 }
+
+function filtrar() {
+  /*evitando la recarga*/
+  event.preventDefault();
+  
+}
