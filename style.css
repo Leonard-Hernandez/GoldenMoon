@@ -52,7 +52,15 @@ table {
 }
 *{
   box-sizing: border-box;
+  font-family: "Prociono", serif;
+  font-weight: 400;
 }
+.prociono-regular {
+  font-family: "Prociono", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body{
   width: 100vw;
   height: 100vh;
