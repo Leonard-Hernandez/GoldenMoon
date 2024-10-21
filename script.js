@@ -2,7 +2,8 @@ var prenda = {
   id: 1,
   name: "Conjunto lencería negro",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
-  price: "$200.000 COP",
+  category: "Bata",
+  price: "$50.000 COP",
   image:
     "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE",
   tallas: {
@@ -17,7 +18,8 @@ var prenda1 = {
   id: 2,
   name: "Conjunto lencería negro 2",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
-  price: "$200.000 COP",
+  category: "pijama",
+  price: "$100.000 COP",
   image:
     "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE",
   tallas: {
@@ -30,6 +32,7 @@ var prenda2 = {
   id: 3,
   name: "Conjunto lencería negro 3",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
+  category: "camisa",
   price: "$200.000 COP",
   image:
     "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE",
@@ -42,7 +45,8 @@ var prenda2 = {
 };
 mensaje_wsp = "Hola, me interesa la compra de ";
 mensaje_wsp_compra_directa = "Hola, me interesa la compra de ";
-var prendas = [prenda, prenda1, prenda2];
+var data = [prenda, prenda1, prenda2];
+var prendas = data;
 
 function mapPrendaToHTML(prenda) {
   const article = document.createElement("article");
@@ -79,6 +83,7 @@ function mapPrendaToHTML(prenda) {
 
   const img = document.createElement("img");
   img.src = prenda.image;
+  img.loading = "lazy";
   article.appendChild(img);
 
   const p = document.createElement("p");
@@ -177,4 +182,35 @@ function filtrar() {
   /*evitando la recarga*/
   event.preventDefault();
   
+}
+
+function filtrar(){
+  event.preventDefault();
+  const tallas = document.querySelectorAll('input[name="tallas_filtros"]:checked');
+  const tallas_values = Array.from(tallas).map((talla) => talla.value);
+  console.log(tallas_values);
+
+  const categorias = document.querySelectorAll('input[name="categorias_filtros"]:checked');
+  const categorias_values = Array.from(categorias).map((categoria) => categoria.value);
+  console.log(categorias_values);
+
+  const precio = document.querySelector('input[name="precio"]').value;
+  console.log(precio);
+
+  let prendasFiltradas = prendas;
+
+  for( prenda of prendas){
+    talla_boolean = false;
+    categoria_boolean = false;
+    precio_boolean = false;
+
+    if(tallas_values.length > 0){
+      tallas_prenda = prenda.tallas;
+      talla_boolean = Object.keys(tallas_prenda).some(talla => Object.keys(tallas_values).includes(talla));
+      console.log(tallas_values);
+      console.log(tallas_prenda);
+    }
+
+  }
+
 }
