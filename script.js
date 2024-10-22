@@ -184,33 +184,46 @@ function filtrar() {
   
 }
 
-function filtrar(){
+function filtrar() {
   event.preventDefault();
+  // Obtener los valores del formulario de filtro
   const tallas = document.querySelectorAll('input[name="tallas_filtros"]:checked');
-  const tallas_values = Array.from(tallas).map((talla) => talla.value);
-  console.log(tallas_values);
-
   const categorias = document.querySelectorAll('input[name="categorias_filtros"]:checked');
-  const categorias_values = Array.from(categorias).map((categoria) => categoria.value);
-  console.log(categorias_values);
+  const precio = document.querySelector('input[type="range"]').value;
 
-  const precio = document.querySelector('input[name="precio"]').value;
-  console.log(precio);
+  // Crear un objeto para almacenar los filtros
+  const filtros = {
+    tallas: Array.from(tallas).map(talla => talla.value),
+    categorias: Array.from(categorias).map(categoria => categoria.value),
+    precio: precio
+  };
 
-  let prendasFiltradas = prendas;
+  // Filtrar las prendas según los filtros
+  const prendasFiltradas = prendas.filter(prenda => {
+    // Verificar si la prenda cumple con los filtros de talla
+    const cumpleTalla = filtros.tallas.length === 0 || Object.keys(prenda.tallas).some(talla => filtros.tallas.includes(talla));
 
-  for( prenda of prendas){
-    talla_boolean = false;
-    categoria_boolean = false;
-    precio_boolean = false;
+    // Verificar si la prenda cumple con los filtros de categoría
+    const cumpleCategoria = filtros.categorias.length === 0 || filtros.categorias.includes(prenda.category);
 
-    if(tallas_values.length > 0){
-      tallas_prenda = prenda.tallas;
-      talla_boolean = Object.keys(tallas_prenda).some(talla => Object.keys(tallas_values).includes(talla));
-      console.log(tallas_values);
-      console.log(tallas_prenda);
-    }
+    // Verificar si la prenda cumple con el filtro de precio
+    const cumplePrecio = parseInt(prenda.price.replace('$', '').replace('.', '')) <= parseInt(precio);
 
-  }
+    // Devolver true si la prenda cumple con todos los filtros
+    return cumpleTalla && cumpleCategoria && cumplePrecio;
+  });
 
+  // Renderizar las prendas filtradas
+  renderPrendasFiltradas(prendasFiltradas);
+}
+
+// Función para renderizar las prendas filtradas
+function renderPrendasFiltradas(prendas) {
+  const prendaContainer = document.getElementById("prendas_container");
+  prendaContainer.innerHTML = '';
+
+  prendas.forEach(prenda => {
+    const article = mapPrendaToHTML(prenda);
+    prendaContainer.appendChild(article);
+  });
 }
