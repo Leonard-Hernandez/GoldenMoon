@@ -2,7 +2,7 @@ var prenda = {
   id: 1,
   name: "Conjunto lencería negro",
   description: "Bata de algodón 100% algodón cosechado en los Andes",
-  category: "Bata",
+  category: "bata",
   price: "$50.000 COP",
   image:
     "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRLde_19-yT9fsxbWdNn7uGZKvHEG4FJuCT1R8r4fQlRkLDVI_ekwJAhQYNGnpBmwu1fYispF98KDTAW-G-w1KB6tb7pI-0JgfvH0spYLoLQkmIRe0R80qXSg&usqp=CAE",
